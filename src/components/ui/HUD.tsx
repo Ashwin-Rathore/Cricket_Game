@@ -83,7 +83,7 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
             </div>
 
             {/* Bottom Controls */}
-            <div className="flex justify-center items-end pb-4 sm:pb-8 pointer-events-auto px-4">
+            <div className="flex justify-center items-end pb-32 sm:pb-40 pointer-events-auto px-4">
                 <div className="flex gap-3 sm:gap-6 flex-wrap justify-center">
                     {!isAnimating ? (
                         <>

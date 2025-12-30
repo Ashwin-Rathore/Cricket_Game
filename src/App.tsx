@@ -4,6 +4,7 @@ import { GameScene } from './components/scene/GameScene';
 import { LoginScreen } from './components/ui/LoginScreen';
 import { HUD } from './components/ui/HUD';
 import { GameOverModal } from './components/ui/GameOverModal';
+import { Footer } from './components/ui/Footer';
 import confetti from 'canvas-confetti';
 
 const GameContent: React.FC = () => {
@@ -151,6 +152,7 @@ const GameContent: React.FC = () => {
           )}
         </>
       )}
+      <Footer />
     </div>
   );
 };

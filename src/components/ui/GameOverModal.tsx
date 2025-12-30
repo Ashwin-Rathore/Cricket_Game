@@ -37,7 +37,7 @@ export const GameOverModal: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-4">
                     <button
                         onClick={restart}
                         className="flex items-center justify-center gap-2 px-6 py-3 sm:py-4 rounded-xl bg-white text-black font-bold text-base sm:text-lg hover:bg-gray-200 transition-colors shadow-lg shadow-white/10 w-full sm:w-auto"
