@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ashwin-rathore.github.io/Cricket_Games/",
+  "homepage": "https://ashwin-rathore.github.io/Cricket_Game/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
