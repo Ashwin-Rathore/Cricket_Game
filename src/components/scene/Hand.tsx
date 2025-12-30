@@ -22,7 +22,7 @@ export const Hand: React.FC<HandProps> = ({ move, selectedMove, position, isLeft
     const wicketRef = useRef<Group>(null);
 
     const base = import.meta.env.BASE_URL;
-    console.log("Vite Base URL:", base);
+    console.log("Vite Base URL::::", base);
     console.log("Loading texture from:", `${base}textures/wicket-texture.png`);
 
     // Load Textures
