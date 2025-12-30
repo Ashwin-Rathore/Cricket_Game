@@ -20,12 +20,12 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
         <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 z-10">
 
             {/* Top Bar: Scores */}
-            <div className="flex justify-between items-start pointer-events-auto">
+            <div className="flex justify-between items-start pointer-events-auto p-2 sm:p-0">
                 {/* PLAYER CARD */}
-                <div className="flex flex-col items-center bg-black/40 backdrop-blur-md px-6 py-3 rounded-xl border border-white/10 shadow-lg min-w-[140px] transition-all">
-                    <span className="text-sm text-gray-400 font-bold tracking-wider mb-1">PLAYER</span>
-                    <span className="text-violet-400 font-bold text-xl mb-1">{userName}</span>
-                    <span className="text-4xl font-black text-white">{scores.user}</span>
+                <div className="flex flex-col items-center bg-black/40 backdrop-blur-md px-3 sm:px-6 py-2 sm:py-3 rounded-xl border border-white/10 shadow-lg min-w-[100px] sm:min-w-[140px] transition-all">
+                    <span className="text-[10px] sm:text-sm text-gray-400 font-bold tracking-wider mb-1">PLAYER</span>
+                    <span className="text-violet-400 font-bold text-base sm:text-xl mb-1 truncate max-w-[80px] sm:max-w-none">{userName}</span>
+                    <span className="text-2xl sm:text-4xl font-black text-white">{scores.user}</span>
                     {/* Selected Option Display */}
                     {currentResult && !isAnimating && (
                         <div className="mt-2 text-2xl animate-fade-in flex flex-col items-center">
@@ -42,10 +42,10 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
                 </div>
 
                 {/* CPU CARD */}
-                <div className="flex flex-col items-center bg-black/40 backdrop-blur-md px-6 py-3 rounded-xl border border-white/5 shadow-lg min-w-[140px] transition-all">
-                    <span className="text-sm text-gray-400 font-bold tracking-wider mb-1">CPU</span>
-                    <span className="text-rose-400 font-bold text-xl mb-1">Computer</span>
-                    <span className="text-4xl font-black text-white">{scores.cpu}</span>
+                <div className="flex flex-col items-center bg-black/40 backdrop-blur-md px-3 sm:px-6 py-2 sm:py-3 rounded-xl border border-white/5 shadow-lg min-w-[100px] sm:min-w-[140px] transition-all">
+                    <span className="text-[10px] sm:text-sm text-gray-400 font-bold tracking-wider mb-1">CPU</span>
+                    <span className="text-rose-400 font-bold text-base sm:text-xl mb-1">CPU</span>
+                    <span className="text-2xl sm:text-4xl font-black text-white">{scores.cpu}</span>
                     {/* Selected Option Display */}
                     {currentResult && !isAnimating && (
                         <div className="mt-2 text-2xl animate-fade-in flex flex-col items-center">
@@ -56,8 +56,8 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
                 </div>
             </div>
 
-            {/* History Sidebar (Left) */}
-            <div className="absolute top-32 left-6 bottom-32 w-64 pointer-events-auto overflow-hidden flex flex-col gap-2">
+            {/* History Sidebar (Left) - Hidden on mobile */}
+            <div className="hidden md:flex absolute top-32 left-6 bottom-32 w-64 pointer-events-auto overflow-hidden flex-col gap-2">
                 <AnimatePresence mode='popLayout'>
                     {history.slice().reverse().map((item) => (
                         <motion.div
@@ -83,8 +83,8 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
             </div>
 
             {/* Bottom Controls */}
-            <div className="flex justify-center items-end pb-8 pointer-events-auto">
-                <div className="flex gap-6">
+            <div className="flex justify-center items-end pb-4 sm:pb-8 pointer-events-auto px-4">
+                <div className="flex gap-3 sm:gap-6 flex-wrap justify-center">
                     {!isAnimating ? (
                         <>
                             <GameButton emoji="🏏" label="BAT" color="from-amber-700 to-orange-900" onClick={() => onPlay('bat')} />
@@ -106,9 +106,9 @@ export const HUD: React.FC<{ onPlay: (move: Move) => void, isAnimating: boolean 
 const GameButton: React.FC<{ emoji: string; label: string; color: string; onClick: () => void }> = ({ emoji, label, color, onClick }) => (
     <button
         onClick={onClick}
-        className={`group relative flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br ${color} shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all active:scale-95`}
+        className={`group relative flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br ${color} shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all active:scale-95`}
     >
-        <span className="text-4xl drop-shadow-md mb-1 transition-transform group-hover:scale-110">{emoji}</span>
+        <span className="text-3xl sm:text-4xl drop-shadow-md mb-1 transition-transform group-hover:scale-110">{emoji}</span>
         <span className="text-[10px] font-black tracking-widest text-white/90">{label}</span>
         <div className="absolute inset-0 rounded-2xl ring-2 ring-white/20 group-hover:ring-white/40 transition-all" />
     </button>

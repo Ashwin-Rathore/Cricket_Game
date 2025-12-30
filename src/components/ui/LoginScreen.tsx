@@ -14,12 +14,12 @@ export const LoginScreen: React.FC = () => {
     };
 
     return (
-        <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/60 backdrop-blur-sm">
-            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 shadow-2xl w-full max-w-md backdrop-blur-md animate-fade-in">
-                <h1 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+        <div className="absolute inset-0 flex items-center justify-center z-50 bg-black/60 backdrop-blur-sm p-4">
+            <div className="bg-white/10 p-6 sm:p-8 rounded-2xl border border-white/20 shadow-2xl w-full max-w-md backdrop-blur-md animate-fade-in">
+                <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2 bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
                     RPS 3D Arena
                 </h1>
-                <p className="text-gray-300 text-center mb-8">Enter the arena, challenger.</p>
+                <p className="text-gray-300 text-center mb-6 sm:mb-8 text-sm sm:text-base">Enter the arena, challenger.</p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <input

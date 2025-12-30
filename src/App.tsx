@@ -107,7 +107,7 @@ const GameContent: React.FC = () => {
 
           {/* Action Feedback Toast */}
           {!isShaking && lastRoundResult && gameState === 'PLAYING' && (
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 text-4xl font-black text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] pointer-events-none animate-bounce">
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 text-2xl sm:text-4xl font-black text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] pointer-events-none animate-bounce text-center w-full px-4">
               {/* WIN MESSAGES */}
               {lastRoundResult.result === 'win' && lastRoundResult.userMove === 'bat' && "GREAT SHOT! 🏏"}
               {lastRoundResult.result === 'win' && lastRoundResult.userMove === 'ball' && "BOWLED 'EM! ⚾"}
@@ -126,7 +126,7 @@ const GameContent: React.FC = () => {
           {/* YOU LOSE MATCH ANIMATION (Banner Only, No Confetti) */}
           {gameState === 'GAME_OVER' && scores.cpu > scores.user && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
-              <div className="bg-red-600/90 text-white font-black text-8xl px-20 py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
+              <div className="bg-red-600/90 text-white font-black text-4xl sm:text-6xl md:text-8xl px-8 sm:px-20 py-6 sm:py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
                 YOU LOSE
               </div>
             </div>
@@ -135,7 +135,7 @@ const GameContent: React.FC = () => {
           {/* YOU WIN MATCH ANIMATION (Banner + Confetti handled by effect) */}
           {gameState === 'GAME_OVER' && scores.user > scores.cpu && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40 flex-col gap-4">
-              <div className="bg-yellow-500/90 text-white font-black text-8xl px-20 py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
+              <div className="bg-yellow-500/90 text-white font-black text-4xl sm:text-6xl md:text-8xl px-8 sm:px-20 py-6 sm:py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
                 VICTORY!
               </div>
             </div>
@@ -144,7 +144,7 @@ const GameContent: React.FC = () => {
           {/* DRAW MATCH ANIMATION */}
           {gameState === 'GAME_OVER' && scores.user === scores.cpu && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
-              <div className="bg-blue-500/90 text-white font-black text-8xl px-20 py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
+              <div className="bg-blue-500/90 text-white font-black text-4xl sm:text-6xl md:text-8xl px-8 sm:px-20 py-6 sm:py-10 transform -rotate-6 animate-pulse drop-shadow-2xl border-4 border-white backdrop-blur-sm">
                 IT'S A DRAW!
               </div>
             </div>

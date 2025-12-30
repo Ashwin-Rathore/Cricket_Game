@@ -37,9 +37,13 @@ export const GameScene: React.FC<GameSceneProps> = ({ userMove, cpuMove, selecte
         }
     }
 
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const handXPosition = isMobile ? 1.5 : 2.5;
+    const cameraZ = isMobile ? 12 : 8;
+
     return (
         <div className="w-full h-full absolute top-0 left-0 -z-10">
-            <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+            <Canvas camera={{ position: [0, 0, cameraZ], fov: 50 }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} />
                 <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
@@ -49,7 +53,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ userMove, cpuMove, selecte
                     <Hand
                         move={userMove}
                         selectedMove={selectedUserMove}
-                        position={[-2.5, 0, 0]}
+                        position={[-handXPosition, 0, 0]}
                         isLeft={true}
                         isShaking={isShaking}
                         outcome={playerOutcome}
@@ -60,7 +64,7 @@ export const GameScene: React.FC<GameSceneProps> = ({ userMove, cpuMove, selecte
                     <Hand
                         move={cpuMove}
                         selectedMove={selectedCpuMove}
-                        position={[2.5, 0, 0]}
+                        position={[handXPosition, 0, 0]}
                         isLeft={false}
                         isShaking={isShaking}
                         outcome={playerOutcome === 'winner' ? 'loser' : playerOutcome === 'loser' ? 'winner' : playerOutcome}
